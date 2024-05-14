@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\Guests\PageController;
 use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +15,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('guests.home');
-});
+
+
+Route::get('/', [PageController::class, 'index'])->name('guests.home');
+
+Route::get('/item', [PageController::class, 'show'])->name('guests.item');
