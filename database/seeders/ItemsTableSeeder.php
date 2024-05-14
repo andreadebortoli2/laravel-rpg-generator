@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Item;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -12,7 +13,7 @@ class ItemsTableSeeder extends Seeder
      */
     public function run(): void
     {
-        $myJsonData = file_get_contents('../items-db.json');
+        $myJsonData = file_get_contents(database_path('items-db.json'));
         $items = json_decode($myJsonData, true);
 
         foreach ($items as $item) {
@@ -24,6 +25,7 @@ class ItemsTableSeeder extends Seeder
             $newItem->weight = $item['weight'];
             $newItem->cost = $item['cost'];
             $newItem->damage_dice = $item['damage_dice'];
+            //dd($newItem);
             $newItem->save();
         }
     }
