@@ -4,6 +4,7 @@ use App\Http\Controllers\CharacterController;
 use App\Http\Controllers\Guests\PageController;
 use Illuminate\Support\Facades\Route;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
