@@ -3,7 +3,7 @@
 @section('page-title', 'item')
 
 @section('content')
-    <div class="container">
+    <div class="container py-3">
         <div class="card">
             <div class="card-body">
                 <h4 class="card-title">{{ $item['name'] }}</h4>
