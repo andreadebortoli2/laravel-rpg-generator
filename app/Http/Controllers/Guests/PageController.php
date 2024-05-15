@@ -13,18 +13,16 @@ class PageController extends Controller
      */
     public function index()
     {
-        return view("guests.home");
+        return view("guests.items.index", ['items' => Item::orderByDesc('id')->paginate()]);
     }
 
-   
+
 
     /**
      * Display the specified resource.
      */
     public function show(Item $item)
     {
-        return view("guests.item");
+        return view("guests.items.show", compact('item'));
     }
-
-    
 }
