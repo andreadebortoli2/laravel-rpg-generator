@@ -16,7 +16,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 
+Route::get('/', function () {
+    return view('guests.home');
+})->name('guests.home');
 
-Route::get('/', [PageController::class, 'index'])->name('guests.home');
+/* Route::get('/items', [PageController::class, 'index'])->name('guests.items.index');
 
-Route::get('/item', [PageController::class, 'show'])->name('guests.item');
+Route::get('/items/{item}', [PageController::class, 'show'])->name('guests.items.show'); */
+
+Route::resource('/items', PageController::class);
