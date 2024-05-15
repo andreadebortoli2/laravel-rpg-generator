@@ -3,7 +3,7 @@
 @section('page-title', 'items list')
 
 @section('content')
-    <div class="container">
+    <div class="container py-3">
         <h2>ITEMS LIST:</h2>
         <div class="row row-cols-5 py-3 g-4">
             @foreach ($items as $item)
