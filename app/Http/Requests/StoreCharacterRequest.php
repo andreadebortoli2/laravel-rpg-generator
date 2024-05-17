@@ -22,7 +22,11 @@ class StoreCharacterRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'name' => 'required|min:3|max:50|unique:characters',
+            'description' => 'nullable|max:500',
+            'attack' => 'nullable|max:10',
+            'defense' => 'nullable|max:10',
+            'speed' => 'nullable|max:10'
         ];
     }
 }

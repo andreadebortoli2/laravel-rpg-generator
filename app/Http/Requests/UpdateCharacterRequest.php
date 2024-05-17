@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class UpdateCharacterRequest extends FormRequest
 {
@@ -22,7 +23,11 @@ class UpdateCharacterRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'name' => ['required' ,'min:3','max:50', Rule::unique('characters')->ignore($this->character)],
+            'description' => 'nullable|max:500',
+            'attack' => 'nullable|max:10',
+            'defense' => 'nullable|max:10',
+            'speed' => 'nullable|max:10'
         ];
     }
 }
