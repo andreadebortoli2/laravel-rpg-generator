@@ -13,7 +13,10 @@ class CharacterController extends Controller
      */
     public function index()
     {
-        //
+
+        $characters = Character::orderByDesc('id');
+
+        return view('guests.characters.index', compact('characters'));
     }
 
     /**
@@ -37,7 +40,9 @@ class CharacterController extends Controller
      */
     public function show(Character $character)
     {
-        //
+
+
+        return view('guests.characters.show', $character);
     }
 
     /**
