@@ -14,7 +14,7 @@ class CharacterController extends Controller
     public function index()
     {
 
-        $characters = Character::orderByDesc('id');
+        $characters = Character::orderByDesc('id')->paginate(8);
 
         return view('guests.characters.index', compact('characters'));
     }
@@ -24,7 +24,7 @@ class CharacterController extends Controller
      */
     public function create()
     {
-        //
+        return view('guests.characters.create');
     }
 
     /**
@@ -32,7 +32,13 @@ class CharacterController extends Controller
      */
     public function store(StoreCharacterRequest $request)
     {
-        //
+        $data = $request->all();
+
+        //dd($data);
+
+        Character::create($data);
+
+        return to_route('characters.index');
     }
 
     /**
@@ -42,7 +48,7 @@ class CharacterController extends Controller
     {
 
 
-        return view('guests.characters.show', $character);
+        return view('guests.characters.show', compact('character'));
     }
 
     /**
