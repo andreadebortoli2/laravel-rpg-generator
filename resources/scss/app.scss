@@ -1,1 +1,10 @@
-@import '~bootstrap/scss/bootstrap';
+@use '~bootstrap/scss/bootstrap';
+@use './partials/header';
+@use './partials/footer';
+
+
+
+section {
+    background-color: rgb(53, 53, 53);
+    color: white;
+}
