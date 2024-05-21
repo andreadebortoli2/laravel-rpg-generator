@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 @section('page-title', 'Characters')
 
@@ -35,8 +35,8 @@
 
 
             <div class="actions text-center py-4">
-                <a href="{{ route('characters.index', $character) }} " class="btn btn-secondary ">Go back</a>
-                <a href="{{ route('characters.edit', $character) }}" class="btn btn-warning ">Edit</a>
+                <a href="{{ route('admin.characters.index', $character) }} " class="btn btn-secondary ">Go back</a>
+                <a href="{{ route('admin.characters.edit', $character) }}" class="btn btn-warning ">Edit</a>
                 <!-- Modal trigger button -->
                 <button type="button" class="btn btn-danger" data-bs-toggle="modal"
                     data-bs-target="#modalId-{{ $character->id }}">
@@ -64,7 +64,7 @@
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
                                     No, Go Back
                                 </button>
-                                <form action="{{ route('characters.destroy', $character) }}" method="post">
+                                <form action="{{ route('admin.characters.destroy', $character) }}" method="post">
 
                                     @csrf
 

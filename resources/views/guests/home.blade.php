@@ -16,7 +16,7 @@
                         </p>
                         <div class="py-2 ">
                             <a class="btn btn-warning" href="{{ route('items.index') }}">Items list</a>
-                            <a class="btn btn-warning" href="{{ route('characters.index') }}">Characters list</a>
+                            {{-- <a class="btn btn-warning" href="{{ route('characters.index') }}">Characters list</a> --}}
                         </div>
                     </div>
                 </div>
