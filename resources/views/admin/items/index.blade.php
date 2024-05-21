@@ -101,7 +101,7 @@
                     </tbody>
                 </table>
             </div>
-
+            {{ $items->links('pagination::bootstrap-5') }}
         </div>
     </section>
 @endsection

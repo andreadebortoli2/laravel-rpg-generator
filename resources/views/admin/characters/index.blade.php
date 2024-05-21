@@ -34,7 +34,8 @@
                                 <td>
                                     <a href="{{ route('admin.characters.show', $character) }} "
                                         class="btn btn-primary btn-sm">👁‍🗨</a>
-                                    <a href="{{ route('admin.characters.edit', $character) }}" class="btn btn-dark btn-sm">🖊</a>
+                                    <a href="{{ route('admin.characters.edit', $character) }}"
+                                        class="btn btn-dark btn-sm">🖊</a>
                                     <!-- Modal trigger button -->
                                     <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal"
                                         data-bs-target="#modalId-{{ $character->id }}">
@@ -94,6 +95,7 @@
                     </tbody>
                 </table>
             </div>
+            {{ $characters->links('pagination::bootstrap-5') }}
 
         </div>
     </section>
