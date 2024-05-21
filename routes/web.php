@@ -26,8 +26,8 @@ Route::get('/', function () {
     return view('guests.home');
 })->name('guests.home');
 
-Route::resource('/items', ItemPageController::class);
-Route::resource('/characters', CharacterPageController::class);
+Route::resource('/items', ItemPageController::class)->parameters(['items' => 'item:slug']);
+Route::resource('/characters', CharacterPageController::class)->parameters(['characters' => 'character:slug']);
 
 
 // admin routes:
@@ -37,7 +37,8 @@ Route::middleware(['auth', 'verified'])
     ->group(function () {
 
         Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
-        Route::resource('/characters', CharacterController::class);
+
+        Route::resource('/characters', CharacterController::class)->parameters(['characters' => 'character:slug']);
         Route::resource('/items', ItemController::class)->parameters(['items' => 'item:slug']);
     });
 

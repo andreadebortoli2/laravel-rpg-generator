@@ -6,6 +6,7 @@ use App\Models\Character;
 use App\Http\Requests\StoreCharacterRequest;
 use App\Http\Requests\UpdateCharacterRequest;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Str;
 
 class CharacterController extends Controller
 {
@@ -35,7 +36,8 @@ class CharacterController extends Controller
     {
         $data = $request->all();
 
-        //dd($data);
+        $slug = Str::slug($request->name, '-');
+        $data['slug'] = $slug;
 
         Character::create($data);
 
@@ -67,7 +69,8 @@ class CharacterController extends Controller
     {
         $data = $request->all();
 
-        //dd($data);
+        $slug = Str::slug($request->name, '-');
+        $data['slug'] = $slug;
 
         $character->update($data);
 
