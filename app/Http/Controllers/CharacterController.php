@@ -16,7 +16,7 @@ class CharacterController extends Controller
 
         $characters = Character::orderByDesc('id')->paginate(8);
 
-        return view('guests.characters.index', compact('characters'));
+        return view('admin.characters.index', compact('characters'));
     }
 
     /**
@@ -24,7 +24,7 @@ class CharacterController extends Controller
      */
     public function create()
     {
-        return view('guests.characters.create');
+        return view('admin.characters.create');
     }
 
     /**
@@ -38,7 +38,7 @@ class CharacterController extends Controller
 
         Character::create($data);
 
-        return to_route('characters.index');
+        return to_route('admin.characters.index');
     }
 
     /**
@@ -48,7 +48,7 @@ class CharacterController extends Controller
     {
 
 
-        return view('guests.characters.show', compact('character'));
+        return view('admin.characters.show', compact('character'));
     }
 
     /**
@@ -56,7 +56,7 @@ class CharacterController extends Controller
      */
     public function edit(Character $character)
     {
-        return view('guests.characters.edit', compact('character'));
+        return view('admin.characters.edit', compact('character'));
     }
 
     /**
@@ -70,7 +70,7 @@ class CharacterController extends Controller
 
         $character->update($data);
 
-        return to_route('characters.index');
+        return to_route('admin.characters.index');
     }
 
     /**

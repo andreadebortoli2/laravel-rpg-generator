@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 @section('page-title', 'Characters')
 
@@ -8,7 +8,7 @@
         <div class="container">
             <h2 class="text-center">Characters</h2>
             <div class="d-flex justify-content-end py-4">
-                <a class="btn btn-success" href="{{ route('characters.create') }}">Add Character</a>
+                <a class="btn btn-success" href="{{ route('admin.characters.create') }}">Add Character</a>
             </div>
             <div class="table-responsive">
                 <table class="table table-success table-bordered table-striped">
@@ -32,9 +32,9 @@
                                 <td>{{ $character->defense }}</td>
                                 <td>{{ $character->speed }}</td>
                                 <td>
-                                    <a href="{{ route('characters.show', $character) }} "
+                                    <a href="{{ route('admin.characters.show', $character) }} "
                                         class="btn btn-primary btn-sm">👁‍🗨</a>
-                                    <a href="{{ route('characters.edit', $character) }}" class="btn btn-dark btn-sm">🖊</a>
+                                    <a href="{{ route('admin.characters.edit', $character) }}" class="btn btn-dark btn-sm">🖊</a>
                                     <!-- Modal trigger button -->
                                     <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal"
                                         data-bs-target="#modalId-{{ $character->id }}">
@@ -64,7 +64,7 @@
                                                         data-bs-dismiss="modal">
                                                         No, Go Back
                                                     </button>
-                                                    <form action="{{ route('characters.destroy', $character) }}"
+                                                    <form action="{{ route('admin.characters.destroy', $character) }}"
                                                         method="post">
 
                                                         @csrf

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\CharacterController;
 use App\Http\Controllers\Guests\PageController;
 use App\Http\Controllers\ProfileController;
@@ -25,13 +26,22 @@ Route::get('/', function () {
     return view('guests.home');
 })->name('guests.home');
 
-Route::resource('/items', PageController::class);
 
-Route::resource('/characters', CharacterController::class);
+Route::middleware(['auth', 'verified'])
+    ->name('admin.')
+    ->prefix('admin')
+    ->group(function (){
+
+        Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
+        Route::resource('/characters', CharacterController::class);
+        
+    });
+    
+    Route::resource('/items', PageController::class);
 
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    return view('admin.dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {

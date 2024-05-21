@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 @section('page-title', 'Create')
 
@@ -8,12 +8,12 @@
         <div class="container">
             <h2 class="text-center">Edit character</h2>
             <div class="d-flex justify-content-end py-4">
-                <a class="btn btn-secondary " href="{{ route('characters.index') }}">Go back</a>
+                <a class="btn btn-secondary " href="{{ route('admin.characters.index') }}">Go back</a>
             </div>
 
             @include('partials.validations-errors')
 
-            <form action="{{ route('characters.update', $character) }}" method="post">
+            <form action="{{ route('admin.characters.update', $character) }}" method="post">
                 @csrf
                 @method('put')
 
