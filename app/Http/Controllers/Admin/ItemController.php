@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Models\Item;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreItemRequest;
+use App\Http\Requests\UpdateItemRequest;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Str;
 
@@ -31,13 +33,13 @@ class ItemController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreItemRequest $request)
     {
-        $data = $request->all();
+        $val_data = $request->validated();
         $slug = Str::slug($request->name, '-');
-        $data['slug'] = $slug;
+        $val_data['slug'] = $slug;
 
-        Item::create($data);
+        Item::create($val_data);
 
         return to_route('admin.items.index');
     }
@@ -61,13 +63,13 @@ class ItemController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Item $item)
+    public function update(UpdateItemRequest $request, Item $item)
     {
-        $data = $request->all();
+        $val_data = $request->validated();
         $slug = Str::slug($request->name, '-');
-        $data['slug'] = $slug;
+        $val_data['slug'] = $slug;
 
-        $item->update($data);
+        $item->update($val_data);
 
         return to_route('admin.items.index');
     }
