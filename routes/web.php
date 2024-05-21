@@ -3,7 +3,8 @@
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\CharacterController;
 use App\Http\Controllers\Admin\ItemController;
-use App\Http\Controllers\Guests\PageController;
+use App\Http\Controllers\Guests\CharacterPageController;
+use App\Http\Controllers\Guests\ItemPageController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -19,15 +20,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
 
+// Guests routes:
 Route::get('/', function () {
     return view('guests.home');
 })->name('guests.home');
 
+Route::resource('/items', ItemPageController::class);
+Route::resource('/characters', CharacterPageController::class);
 
+
+// admin routes:
 Route::middleware(['auth', 'verified'])
     ->name('admin.')
     ->prefix('admin')
@@ -38,12 +41,6 @@ Route::middleware(['auth', 'verified'])
         Route::resource('/items', ItemController::class)->parameters(['items' => 'item:slug']);
     });
 
-Route::resource('/items', PageController::class);
-
-
-Route::get('/dashboard', function () {
-    return view('admin.dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

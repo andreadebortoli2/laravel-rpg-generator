@@ -1,4 +1,4 @@
-@extends('layourts.admin')
+@extends('layouts.admin')
 
 @section('page-title', 'Create')
 

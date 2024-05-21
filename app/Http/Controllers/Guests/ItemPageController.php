@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Item;
 
 
-class PageController extends Controller
+class ItemPageController extends Controller
 {
     /**
      * Display a listing of the resource.
