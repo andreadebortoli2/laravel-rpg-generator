@@ -24,9 +24,9 @@ class StoreCharacterRequest extends FormRequest
         return [
             'name' => 'required|min:3|max:50|unique:characters',
             'description' => 'nullable|max:500',
-            'attack' => 'nullable|max:10',
-            'defense' => 'nullable|max:10',
-            'speed' => 'nullable|max:10'
+            'attack' => 'nullable',
+            'defense' => 'nullable',
+            'speed' => 'nullable'
         ];
     }
 }

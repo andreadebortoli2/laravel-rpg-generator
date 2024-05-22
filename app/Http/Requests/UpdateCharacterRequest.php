@@ -23,11 +23,11 @@ class UpdateCharacterRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => ['required' ,'min:3','max:50', Rule::unique('characters')->ignore($this->character)],
+            'name' => ['required', 'min:3', 'max:50', Rule::unique('characters')->ignore($this->character)],
             'description' => 'nullable|max:500',
-            'attack' => 'nullable|max:10',
-            'defense' => 'nullable|max:10',
-            'speed' => 'nullable|max:10'
+            'attack' => 'nullable',
+            'defense' => 'nullable',
+            'speed' => 'nullable'
         ];
     }
 }

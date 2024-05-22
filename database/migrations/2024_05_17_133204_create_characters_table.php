@@ -14,10 +14,11 @@ return new class extends Migration
         Schema::create('characters', function (Blueprint $table) {
             $table->id();
             $table->string('name', 50)->unique();
+            $table->string('slug');
             $table->text('description')->nullable();
-            $table->string('attack', 10)->nullable();
-            $table->string('defense', 10)->nullable();
-            $table->string('speed', 10)->nullable();
+            $table->tinyInteger('attack')->nullable();
+            $table->tinyInteger('defense')->nullable();
+            $table->tinyInteger('speed')->nullable();
             $table->timestamps();
         });
     }
