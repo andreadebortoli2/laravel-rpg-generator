@@ -1,35 +1,30 @@
 <header class="py-3">
+    <nav class="container navbar navbar-expand navbar-light d-flex justify-content-between">
+        <a class="navbar-brand d-flex align-items-center" href="{{ url('/') }}">
+            <div class="my_logo">
+                <img width="250px" src="{{ asset('img/logo.png') }}" alt="">
+            </div>
+            {{-- config('app.name', 'Laravel') --}}
+        </a>
 
+        <div class="nav navbar-nav">
 
-
-
-
-
-
-
-
-
-    <nav class="container navbar navbar-expand navbar-light">
-
-        <div class="nav navbar-nav d-flex justify-content-between w-100">
-            <div>
+            <div class="d-flex flex-no-wrap">
                 <a class="nav-item nav-link fw-bold {{ Route::currentRouteName() === 'guests.home' ? 'active' : '' }}"
                     href="{{ route('guests.home') }}">Home</a>
-            </div>
-            <div class="d-flex flex-no-wrap">
                 <a class="nav-item nav-link fw-bold {{ Route::currentRouteName() === 'items.index' ? 'active' : '' }}"
                     href="{{ route('items.index') }}">Items</a>
                 <a class="nav-item nav-link fw-bold {{ Route::currentRouteName() === 'characters.index' ? 'active' : '' }}"
                     href="{{ route('characters.index') }}">Characters</a>
             </div>
 
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            <button class="navbar-toggler " type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="{{ __('Toggle navigation') }}">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="collapse navbar-collapse align-self-end" id="navbarSupportedContent">
 
                 <!-- Right Side Of Navbar -->
                 <ul class="navbar-nav ml-auto">
@@ -51,7 +46,7 @@
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{ url('dashboard') }}">{{ __('Dashboard') }}</a>
+                                <a class="dropdown-item" href="{{ url('admin') }}">{{ __('Dashboard') }}</a>
                                 <a class="dropdown-item" href="{{ url('profile') }}">{{ __('Profile') }}</a>
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                     onclick="event.preventDefault();

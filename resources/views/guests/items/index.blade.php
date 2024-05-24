@@ -3,7 +3,7 @@
 @section('page-title', 'items list')
 
 @section('content')
-    <section id="items" class="py-3">
+    <section id="items" class="py-3 ">
         <div class="container">
             <h2 class="py-2 text-center">Items</h2>
             <div class="row row-cols-5 py-3 g-4">
