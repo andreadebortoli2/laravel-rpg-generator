@@ -1,5 +1,5 @@
-<section class="space-y-6">
-    <header>
+<section class="space-y-6 rounded">
+    <header class="p-3 rounded m-2">
         <h2 class="text-lg font-medium text-gray-900">
             {{ __('Delete Account') }}
         </h2>
@@ -10,7 +10,7 @@
     </header>
 
     <!-- Modal trigger button -->
-    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#delete-account">
+    <button type="button" class="btn btn-danger p-3 rounded m-2 text-center" data-bs-toggle="modal" data-bs-target="#delete-account">
         {{__('Delete Account')}}
     </button>
 
@@ -32,7 +32,7 @@
                     </p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
 
                     <form method="post" action="{{ route('profile.destroy') }}" class="p-6">
                         @csrf
@@ -51,7 +51,7 @@
 
 
 
-                            <button type="submit" class="btn btn-danger">
+                            <button type="submit" class="btn btn-danger p-3 rounded m-2">
                                 {{ __('Delete Account') }}
                             </button>
                             <!--  -->

@@ -7,10 +7,10 @@
     <section id="items" class="py-5">
         <div class="container">
             <h2 class="text-center">items</h2>
-            <div class="d-flex justify-content-end py-4">
-                <a class="btn btn-success" href="{{ route('admin.items.create') }}">Add item</a>
+            <div class="d-flex justify-content-center py-4">
+                <a class="btn btn-success px-3" href="{{ route('admin.items.create') }}">Add Item</a>
             </div>
-            <div class="table-responsive">
+            <div class="table-responsive rounded">
                 <table class="table table-success table-bordered table-striped">
                     <thead>
                         <tr>

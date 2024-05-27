@@ -7,11 +7,11 @@
     <section id="characters" class="py-5">
         <div class="container">
             <h2 class="text-center">Characters</h2>
-            <div class="d-flex justify-content-end py-4">
+            <div class="d-flex justify-content-center py-4">
                 <a class="btn btn-success" href="{{ route('admin.characters.create') }}">Add Character</a>
             </div>
-            <div class="table-responsive">
-                <table class="table table-success table-bordered table-striped">
+            <div class="table-responsive rounded">
+                <table class="table table-warning table-bordered table-striped rounded">
                     <thead>
                         <tr>
                             <th scope="col">Id</th>
@@ -23,7 +23,7 @@
 
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody class="rounded">
                         @forelse ($characters as $character)
                             <tr class="">
                                 <td scope="row">{{ $character->id }}</td>

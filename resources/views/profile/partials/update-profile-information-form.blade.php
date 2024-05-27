@@ -1,5 +1,7 @@
-<section>
-    <header>
+
+
+<section class="rounded">
+    <header class="p-3 rounded m-2">
         <h2 class="text-secondary">
             {{ __('Profile Information') }}
         </h2>
@@ -13,7 +15,7 @@
         @csrf
     </form>
 
-    <form method="post" action="{{ route('profile.update') }}" class="mt-6 space-y-6">
+    <form method="post" action="{{ route('profile.update') }}" class="p-3 rounded m-2">
         @csrf
         @method('patch')
 
@@ -60,7 +62,7 @@
         </div>
 
         <div class="d-flex align-items-center gap-4">
-            <button class="btn btn-primary" type="submit">{{ __('Save') }}</button>
+            <button class="btn btn-danger" type="submit">{{ __('Save') }}</button>
 
             @if (session('status') === 'profile-updated')
             <script>

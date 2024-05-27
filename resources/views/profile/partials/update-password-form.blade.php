@@ -1,5 +1,5 @@
-<section>
-    <header>
+<section class="rounded">
+    <header class="p-3 rounded m-2">
         <h2 class="text-lg font-medium text-gray-900">
             {{ __('Update Password') }}
         </h2>
@@ -9,7 +9,7 @@
         </p>
     </header>
 
-    <form method="post" action="{{ route('password.update') }}" class="mt-6 space-y-6">
+    <form method="post" action="{{ route('password.update') }}" class="p-3 rounded m-2">
         @csrf
         @method('put')
 
@@ -45,7 +45,7 @@
         </div>
 
         <div class="d-flex align-items-center gap-4">
-            <button type="submit" class="btn btn-primary">{{ __('Save') }}</button>
+            <button type="submit" class="btn btn-danger">{{ __('Save') }}</button>
 
             @if (session('status') === 'password-updated')
             <script>
