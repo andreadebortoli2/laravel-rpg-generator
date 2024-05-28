@@ -3,7 +3,7 @@
 @section('page-title', 'item')
 
 @section('content')
-    <section id="show-items" class="py-5 vh-100">
+    <section id="show-items" class="py-5">
         <div class="container">
             <a class="btn btn-secondary" href="{{ route('items.index') }}">Go Back</a>
             <div class="row justify-content-center">
