@@ -3,7 +3,7 @@
 @section('page-title', 'home')
 
 @section('content')
-    <section id="home" class="p-1 vh-100 d-flex align-items-center">
+    <section id="home" class="p-1 d-flex align-items-center">
         <div class="container py-3">
             <div class="row align-items-md-stretch justify-content-center">
                 <div class="col-12">
