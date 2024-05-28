@@ -1,11 +1,7 @@
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand d-flex align-items-center" href="{{ url('/') }}">
-                    <div class="my_logo d-flex flex-column  align-items-center px-5">
-                        <img width="250px" src="{{ asset('img/logo.png') }}" alt="">
-                        <a class="navbar-brand d-flex fw-bold text-danger" href="{{ url('/') }}">Guest Home</a>
-                    </div>
-
+                    <img width="250px" src="{{ asset('img/logo.png') }}" alt="">
                 </a>
 
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
