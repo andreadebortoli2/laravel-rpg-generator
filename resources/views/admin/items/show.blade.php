@@ -39,10 +39,10 @@
 
 
             <div class="actions text-center py-4">
-                <a href="{{ route('admin.items.index', $item) }} " class="btn btn-secondary ">Go back</a>
-                <a href="{{ route('admin.items.edit', $item) }}" class="btn btn-warning ">Edit</a>
+                <a href="{{ route('admin.items.index', $item) }} " class="btn btn-secondary">Go back</a>
+                <a href="{{ route('admin.items.edit', $item) }}" class="btn btn-warning">Edit</a>
                 <!-- Modal trigger button -->
-                <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal"
+                <button type="button" class="btn btn-danger" data-bs-toggle="modal"
                     data-bs-target="#modalId-{{ $item->id }}">
                     Delete
                 </button>
