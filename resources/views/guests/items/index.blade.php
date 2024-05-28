@@ -10,7 +10,7 @@
                 @foreach ($items as $item)
                     <div class="col">
                         <a href="{{ route('items.show', $item) }}" style="text-decoration: none">
-                            <div class="card p-2">
+                            <div class="card p-2 h-100 position-relative">
                                 <div class="card-body">
                                     <h4 class="card-title">{{ $item['name'] }}</h4>
                                     <ul class="card-text list-unstyled">
@@ -33,8 +33,13 @@
                                             <strong>Damage Dice:</strong> {{ $item['damage_dice'] }}
                                         </li>
                                     </ul>
+                                    <div class="bg_img">
+
+                                    </div>
                                 </div>
                             </div>
+
+
                         </a>
                     </div>
                 @endforeach
