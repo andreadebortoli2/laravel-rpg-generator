@@ -100,8 +100,10 @@
 
                     </tbody>
                 </table>
+
             </div>
             {{ $items->links('pagination::bootstrap-5') }}
         </div>
+        <img src="{{ asset('img/logo.png') }}" class="opacity-25 img-fluid" alt="">
     </section>
 @endsection
