@@ -103,7 +103,8 @@
 
             </div>
             {{ $items->links('pagination::bootstrap-5') }}
+            <img src="{{ asset('img/logo.png') }}" class="opacity-25 img-fluid" alt="">
         </div>
-        <img src="{{ asset('img/logo.png') }}" class="opacity-25 img-fluid" alt="">
+
     </section>
 @endsection
