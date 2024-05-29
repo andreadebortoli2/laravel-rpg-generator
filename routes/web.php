@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\ItemController;
 use App\Http\Controllers\Guests\CharacterPageController;
 use App\Http\Controllers\Guests\ItemPageController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\TypeController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -40,6 +41,7 @@ Route::middleware(['auth', 'verified'])
 
         Route::resource('/characters', CharacterController::class)->parameters(['characters' => 'character:slug']);
         Route::resource('/items', ItemController::class)->parameters(['items' => 'item:slug']);
+        Route::resource('/types', TypeController::class)->parameters(['types' => 'type:slug']);
     });
 
 
