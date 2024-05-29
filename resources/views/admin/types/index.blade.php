@@ -29,19 +29,18 @@
                                 <td>{{ $type->slug }}</td>
 
                                 <td>
-                                     <a href="{{ route('admin.types.show', $type) }} "
+                                    <a href="{{ route('admin.types.show', $type) }} "
                                         class="btn btn-primary btn-sm">👁‍🗨</a>
-                                    <a href="{{ route('admin.types.edit', $type) }}"
-                                        class="btn btn-dark btn-sm">🖊</a>
+                                    <a href="{{ route('admin.types.edit', $type) }}" class="btn btn-dark btn-sm">🖊</a>
                                     <!-- Modal trigger button -->
-                                                                         <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal"
+                                    <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal"
                                         data-bs-target="#modalId-{{ $type->id }}">
                                         🗑
                                     </button>
 
                                     <!-- Modal Body -->
                                     <!-- if you want to close by clicking outside the modal, delete the last endpoint:data-bs-backdrop and data-bs-keyboard -->
-                                                                         <div class="modal fade" id="modalId-{{ $type->id }}" tabindex="-1"
+                                    <div class="modal fade" id="modalId-{{ $type->id }}" tabindex="-1"
                                         data-bs-backdrop="static" data-bs-keyboard="false" role="dialog"
                                         aria-labelledby="modalTitleId-{{ $type->id }}" aria-hidden="true">
                                         <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-sm"
@@ -94,8 +93,10 @@
             </div>
             {{ $types->links('pagination::bootstrap-5') }}
 
+            <img src="{{ asset('img/logo.png') }}" class="opacity-25 img-fluid" alt="">
+
         </div>
 
-        <img src="{{ asset('img/logo.png') }}" class="opacity-25 img-fluid" alt="">
+
     </section>
 @endsection
