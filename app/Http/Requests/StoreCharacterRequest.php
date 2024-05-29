@@ -23,6 +23,7 @@ class StoreCharacterRequest extends FormRequest
     {
         return [
             'name' => 'required|min:3|max:50|unique:characters',
+            'type_id' => 'nullable|exists:types,id',
             'description' => 'nullable|max:500',
             'attack' => 'nullable',
             'defense' => 'nullable',
