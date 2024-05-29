@@ -6,7 +6,7 @@ use App\Http\Controllers\Admin\ItemController;
 use App\Http\Controllers\Guests\CharacterPageController;
 use App\Http\Controllers\Guests\ItemPageController;
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\TypeController;
+use App\Http\Controllers\Admin\TypeController;
 use Illuminate\Support\Facades\Route;
 
 
