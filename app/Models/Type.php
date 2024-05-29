@@ -10,6 +10,13 @@ class Type extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'name',
+        'slug',
+        'desc',
+    ];
+
+
     /**
      * Get all of the character for the Type
      *

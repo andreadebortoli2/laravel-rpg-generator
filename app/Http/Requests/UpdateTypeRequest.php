@@ -11,7 +11,7 @@ class UpdateTypeRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,8 @@ class UpdateTypeRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'name' => 'required|max:25|unique:types,name,' . $this->type->id,
+            'desc' => 'nullable'
         ];
     }
 }
