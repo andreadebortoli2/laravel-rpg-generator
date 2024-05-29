@@ -1,6 +1,14 @@
 <?php
 
+use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\CharacterController;
+use App\Http\Controllers\Admin\ItemController;
+use App\Http\Controllers\Guests\CharacterPageController;
+use App\Http\Controllers\Guests\ItemPageController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Admin\TypeController;
 use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +21,34 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+// Guests routes:
 Route::get('/', function () {
-    return view('welcome');
+    return view('guests.home');
+})->name('guests.home');
+
+Route::resource('/items', ItemPageController::class)->parameters(['items' => 'item:slug']);
+Route::resource('/characters', CharacterPageController::class)->parameters(['characters' => 'character:slug']);
+
+
+// admin routes:
+Route::middleware(['auth', 'verified'])
+    ->name('admin.')
+    ->prefix('admin')
+    ->group(function () {
+
+        Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
+
+        Route::resource('/characters', CharacterController::class)->parameters(['characters' => 'character:slug']);
+        Route::resource('/items', ItemController::class)->parameters(['items' => 'item:slug']);
+        Route::resource('/types', TypeController::class)->parameters(['types' => 'type:slug']);
+    });
+
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+require __DIR__ . '/auth.php';
