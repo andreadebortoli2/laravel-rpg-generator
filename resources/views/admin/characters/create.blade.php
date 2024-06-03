@@ -84,6 +84,17 @@
                     @enderror
                 </div>
 
+                <div class="mb-3 d-flex flex-wrap gap-2">
+                    @foreach ($items as $item)
+                        <div class="form-check">
+                            <input name="items[]" class="form-check-input" type="checkbox" value="{{ $item->id }}"
+                                id="items-{{ $item->id }}"
+                                {{ in_array($item->id, old('items', [])) ? 'checked' : '' }} />
+                            <label class="form-check-label" for="items-{{ $item->id }}">{{ $item->name }}</label>
+                        </div>
+                    @endforeach
+                </div>
+
                 <button type="submit" class="btn btn-success">
                     Create
                 </button>

@@ -91,6 +91,50 @@
                     @enderror
                 </div>
 
+                <div class="mb-3 d-flex flex-wrap gap-2">
+                    @if ($errors->any())
+                        <div>
+                            <span>Insert the items used by your character:</span>
+                            <div class="d-flex m-3 justify-content-between flex-wrap">
+                                @foreach ($items as $item)
+                                    <div class="form-check">
+                                        <input name="items[]" class="form-check-input" type="checkbox"
+                                            value="{{ $item->id }}" id="items-{{ $item->id }}"
+                                            {{ in_array($item->id, old('items', [])) ? 'checked' : '' }} />
+                                        <label class="form-check-label"
+                                            for="items-{{ $item->id }}">{{ $item->name }}</label>
+                                    </div>
+                                @endforeach
+                            </div>
+                            @error('items')
+                                <div class="text-danger py-2">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
+                    @else
+                        <div>
+                            <span>Insert the items used by your character:</span>
+                            <div class="d-flex m-3 justify-content-between flex-wrap">
+                                @foreach ($items as $item)
+                                    <div class="form-check">
+                                        <input name="items[]" class="form-check-input" type="checkbox"
+                                            value="{{ $item->id }}" id="items-{{ $item->id }}"
+                                            {{ $character->items()->get()->contains($item->id)? 'checked': 'no' }} />
+                                        <label class="form-check-label"
+                                            for="items-{{ $item->id }}">{{ $item->name }}</label>
+                                    </div>
+                                @endforeach
+                            </div>
+                            @error('items')
+                                <div class="text-danger py-2">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
+                    @endif
+                </div>
+
                 <button type="submit" class="btn btn-success">
                     Edit
                 </button>
