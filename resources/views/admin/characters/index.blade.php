@@ -29,7 +29,11 @@
                             <tr class="">
                                 <td scope="row">{{ $character->id }}</td>
                                 <td>{{ $character->name }}</td>
-                                <td>{{ $character->type->name }}</td>
+                                @if ($character->type)
+                                    <td>{{ $character->type->name }}</td>
+                                @else
+                                    <td></td>
+                                @endif
                                 <td>{{ $character->attack }}</td>
                                 <td>{{ $character->defense }}</td>
                                 <td>{{ $character->speed }}</td>
