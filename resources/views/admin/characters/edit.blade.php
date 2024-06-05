@@ -13,7 +13,7 @@
 
             @include('partials.validations-errors')
 
-            <form action="{{ route('admin.characters.update', $character) }}" method="post">
+            <form action="{{ route('admin.characters.update', $character) }}" enctype="multipart/form-data" method="post">
                 @csrf
                 @method('put')
 
@@ -78,18 +78,17 @@
                     @error('speed')
                         <div class="text-danger">{{ $message }}</div>
                     @enderror
-
                 </div>
 
-                {{-- <div class="mb-3">
-                    <label for="description" class="form-label">Description</label>
-                    <textarea class="form-control @error('description') is-invalid @enderror" name="description" id="description"
-                        rows="5">{{ old('description', $character->description) }}</textarea>
-                    <small id="helpId" class="form-text text-light">Edit name to your character</small>
-                    @error('description')
+                <div class="mb-3">
+                    <label for="image" class="form-label">Image</label>
+                    <input type="file" class="form-control @error('image') is-invalid @enderror" name="image"
+                        id="image" aria-describedby="helpIdImage" />
+                    <small id="helpIdImage" class="form-text text-muted">Insert the character image</small>
+                    @error('image')
                         <div class="text-danger">{{ $message }}</div>
                     @enderror
-                </div> --}}
+                </div>
 
                 <div class="mb-3 d-flex flex-wrap gap-2">
                     @if ($errors->any())

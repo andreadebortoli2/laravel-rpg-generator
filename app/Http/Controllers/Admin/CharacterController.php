@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Type;
 use App\Models\Item;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
 
 class CharacterController extends Controller
 {
@@ -40,6 +41,10 @@ class CharacterController extends Controller
     {
         $data = $request->validated();
 
+        if ($request->has('image')) {
+            $image = Storage::put('characters-images', $request['image']);
+            $data['image'] = $image;
+        }
         $slug = Str::slug($request->name, '-');
         $data['slug'] = $slug;
 
@@ -48,8 +53,6 @@ class CharacterController extends Controller
         if ($request->has('items')) {
             $character->items()->attach($data['items']);
         };
-
-        dd($data);
 
         return to_route('admin.characters.index');
     }
@@ -80,6 +83,14 @@ class CharacterController extends Controller
     public function update(UpdateCharacterRequest $request, Character $character)
     {
         $data = $request->validated();
+
+        if ($request->has('image')) {
+            if ($character->image) {
+                Storage::delete($character->image);
+            }
+            $image = Storage::put('characters-images', $request['image']);
+            $data['image'] = $image;
+        }
 
         $slug = Str::slug($request->name, '-');
         $data['slug'] = $slug;

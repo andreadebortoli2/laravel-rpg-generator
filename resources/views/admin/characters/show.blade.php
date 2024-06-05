@@ -16,7 +16,7 @@
                     <ul class="list-unstyled d-flex flex-column gap-3 align-items-center">
                         <li>
                             <h5 class="d-inline me-3">Type:</h5>
-                            <strong>{{ $character->type->name }}</strong>
+                            <strong>{{ $character->type !== null ? $character->type->name : '' }}</strong>
                         </li>
                         <li>
                             <h5 class="d-inline me-3">Attack:</h5>

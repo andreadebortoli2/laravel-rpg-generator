@@ -14,7 +14,7 @@
 
             @include('partials.validations-errors')
 
-            <form action="{{ route('admin.characters.store') }}" method="post">
+            <form action="{{ route('admin.characters.store') }}" enctype="multipart/form-data" method="post">
                 @csrf
 
                 <div class="mb-3">
@@ -74,15 +74,15 @@
                     @enderror
                 </div>
 
-                {{-- <div class="mb-3">
-                    <label for="description" class="form-label">Description</label>
-                    <textarea class="form-control @error('description') is-invalid @enderror" name="description" id="description"
-                        rows="5" placeholder="description">{{ old('description') }}</textarea>
-                    <small id="descriptionId" class="form-text text-light">Add description to your character</small>
-                    @error('description')
+                <div class="mb-3">
+                    <label for="image" class="form-label">Image</label>
+                    <input type="file" class="form-control @error('image') is-invalid @enderror" name="image"
+                        id="image" aria-describedby="helpIdImage" />
+                    <small id="helpIdImage" class="form-text text-muted">Insert the character image</small>
+                    @error('image')
                         <div class="text-danger">{{ $message }}</div>
                     @enderror
-                </div> --}}
+                </div>
 
                 <div class="mb-3 d-flex flex-wrap gap-2">
                     @foreach ($items as $item)
