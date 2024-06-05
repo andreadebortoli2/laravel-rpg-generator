@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name', 50)->unique();
             $table->string('slug');
-            $table->text('description')->nullable();
+            $table->string('image', 255)->nullable();
             $table->tinyInteger('attack')->nullable();
             $table->tinyInteger('defense')->nullable();
             $table->tinyInteger('speed')->nullable();

@@ -10,10 +10,7 @@
             <h3 class="text-center">{{ $character->name }}</h3>
             <div class="row justify-content-center align-items-center py-5 h-100">
                 <div class="col-6 text-center ">
-                    <h5>Description:</h5>
-                    <p>
-                        {{ $character->description }}
-                    </p>
+                    <img src="{{ asset('storage/' . $character->image) }}" alt="{{ $character->name }}">
                 </div>
                 <div class="col-6">
                     <ul class="list-unstyled d-flex flex-column gap-3 align-items-center">

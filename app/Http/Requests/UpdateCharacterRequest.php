@@ -24,7 +24,7 @@ class UpdateCharacterRequest extends FormRequest
     {
         return [
             'name' => ['required', 'min:3', 'max:50', Rule::unique('characters')->ignore($this->character)],
-            'description' => 'nullable|max:500',
+            'image' => 'nullable|image|max: 200',
             'attack' => 'nullable',
             'defense' => 'nullable',
             'speed' => 'nullable',

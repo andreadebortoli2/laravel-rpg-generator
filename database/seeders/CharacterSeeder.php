@@ -16,18 +16,24 @@ class CharacterSeeder extends Seeder
     public function run(Faker $faker): void
     {
 
-        for ($i = 0; $i < 5; $i++) {
+        $characters = config('characters-db');
 
-            $character = new Character();
+        foreach ($characters as $character) {
 
-            $character->name = $faker->words(3, true);
-            $character->slug = Str::of($character->name)->slug('-');
-            $character->description = $faker->paragraph();
-            $character->attack = $faker->randomNumber(2, true);
-            $character->defense = $faker->randomNumber(2, true);
-            $character->speed = $faker->randomNumber(2, true);
-            $character->type_id = $faker->numberBetween(1, 12);
-            $character->save();
+            $newCharacter = new Character();
+
+            $newCharacter->name = $character['name'];
+            $newCharacter->slug = Str::of($newCharacter->name)->slug('-');
+            $newCharacter->image = $character['image'];
+            $newCharacter->attack = $faker->randomNumber(2, true);
+            $newCharacter->defense = $faker->randomNumber(2, true);
+            $newCharacter->speed = $faker->randomNumber(2, true);
+            $newCharacter->type_id = $faker->numberBetween(1, 12);
+            $newCharacter->save();
+        }
+
+        foreach (Character::all() as $character) {
+            $character->items()->attach($faker->numberBetween(1, 37));
         }
     }
 }

@@ -81,7 +81,7 @@
 
                 </div>
 
-                <div class="mb-3">
+                {{-- <div class="mb-3">
                     <label for="description" class="form-label">Description</label>
                     <textarea class="form-control @error('description') is-invalid @enderror" name="description" id="description"
                         rows="5">{{ old('description', $character->description) }}</textarea>
@@ -89,7 +89,7 @@
                     @error('description')
                         <div class="text-danger">{{ $message }}</div>
                     @enderror
-                </div>
+                </div> --}}
 
                 <div class="mb-3 d-flex flex-wrap gap-2">
                     @if ($errors->any())
