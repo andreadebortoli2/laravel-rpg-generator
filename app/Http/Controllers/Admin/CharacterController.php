@@ -113,6 +113,6 @@ class CharacterController extends Controller
     {
         $character->delete();
 
-        return back();
+        return to_route('admin.characters.index');
     }
 }
