@@ -3,8 +3,6 @@
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\CharacterController;
 use App\Http\Controllers\Admin\ItemController;
-use App\Http\Controllers\Guests\CharacterPageController;
-use App\Http\Controllers\Guests\ItemPageController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\TypeController;
 use Illuminate\Support\Facades\Route;
@@ -24,11 +22,8 @@ use Illuminate\Support\Facades\Route;
 
 // Guests routes:
 Route::get('/', function () {
-    return view('guests.home');
+    return view('auth.login');
 })->name('guests.home');
-
-Route::resource('/items', ItemPageController::class)->parameters(['items' => 'item:slug']);
-Route::resource('/characters', CharacterPageController::class)->parameters(['characters' => 'character:slug']);
 
 
 // admin routes:

@@ -12,10 +12,6 @@
             <div class="d-flex flex-no-wrap">
                 <a class="nav-item nav-link fw-bold {{ Route::currentRouteName() === 'guests.home' ? 'active' : '' }}"
                     href="{{ route('guests.home') }}">Home</a>
-                <a class="nav-item nav-link fw-bold {{ Route::currentRouteName() === 'items.index' ? 'active' : '' }}"
-                    href="{{ route('items.index') }}">Items</a>
-                <a class="nav-item nav-link fw-bold {{ Route::currentRouteName() === 'characters.index' ? 'active' : '' }}"
-                    href="{{ route('characters.index') }}">Characters</a>
             </div>
 
             <button class="navbar-toggler " type="button" data-bs-toggle="collapse"

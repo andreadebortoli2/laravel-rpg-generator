@@ -3,11 +3,14 @@
 @use './partials/footer';
 
 
+main {
+    min-height: 80vh;
+}
 
 section {
     background-color: rgb(53, 53, 53);
     color: white;
-    min-height: 40vw;
+    min-height: 85vh;
 }
 
 .bg_img {

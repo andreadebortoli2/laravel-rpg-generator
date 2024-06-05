@@ -41,6 +41,8 @@ class CharacterController extends Controller
         $slug = Str::slug($request->name, '-');
         $data['slug'] = $slug;
 
+        // dd($data);
+
         Character::create($data);
 
         return to_route('admin.characters.index');

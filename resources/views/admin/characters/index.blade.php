@@ -29,7 +29,7 @@
                             <tr class="">
                                 <td scope="row">{{ $character->id }}</td>
                                 <td>{{ $character->name }}</td>
-                                <td>{{ $character->type->name }}</td>
+                                <td>{{ $character->type->name !== null ? $character->type->name : '' }}</td>
                                 <td>{{ $character->attack }}</td>
                                 <td>{{ $character->defense }}</td>
                                 <td>{{ $character->speed }}</td>

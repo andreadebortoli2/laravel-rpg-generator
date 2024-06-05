@@ -14,10 +14,6 @@
                             Whether you’re a seasoned adventurer or new to the world of RPGs, our intuitive generator offers
                             endless customization options to bring your hero to life.
                         </p>
-                        <div class="py-2 ">
-                            <a class="btn btn-warning" href="{{ route('items.index') }}">Items List</a>
-                            <a class="btn btn-warning" href="{{ route('characters.index') }}">Characters List</a>
-                        </div>
                     </div>
                 </div>
 
