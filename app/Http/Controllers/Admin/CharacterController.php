@@ -7,6 +7,7 @@ use App\Http\Requests\StoreCharacterRequest;
 use App\Http\Requests\UpdateCharacterRequest;
 use App\Http\Controllers\Controller;
 use App\Models\Type;
+use App\Models\Item;
 use Illuminate\Support\Str;
 
 class CharacterController extends Controller
@@ -28,7 +29,8 @@ class CharacterController extends Controller
     public function create()
     {
         $types = Type::all();
-        return view('admin.characters.create', compact('types'));
+        $items = Item::all();
+        return view('admin.characters.create', compact('types', 'items'));
     }
 
     /**
@@ -36,14 +38,18 @@ class CharacterController extends Controller
      */
     public function store(StoreCharacterRequest $request)
     {
-        $data = $request->all();
+        $data = $request->validated();
 
         $slug = Str::slug($request->name, '-');
         $data['slug'] = $slug;
 
-        // dd($data);
+        $character = Character::create($data);
 
-        Character::create($data);
+        if ($request->has('items')) {
+            $character->items()->attach($data['items']);
+        };
+
+        dd($data);
 
         return to_route('admin.characters.index');
     }
@@ -64,7 +70,8 @@ class CharacterController extends Controller
     public function edit(Character $character)
     {
         $types = Type::all();
-        return view('admin.characters.edit', compact('character', 'types'));
+        $items = Item::all();
+        return view('admin.characters.edit', compact('character', 'types', 'items'));
     }
 
     /**
@@ -72,12 +79,18 @@ class CharacterController extends Controller
      */
     public function update(UpdateCharacterRequest $request, Character $character)
     {
-        $data = $request->all();
+        $data = $request->validated();
 
         $slug = Str::slug($request->name, '-');
         $data['slug'] = $slug;
 
         $character->update($data);
+
+        if ($request->has('items')) {
+            $character->items()->attach($data['items']);
+        } else {
+            $character->items()->sync([]);
+        };
 
         return to_route('admin.characters.index');
     }

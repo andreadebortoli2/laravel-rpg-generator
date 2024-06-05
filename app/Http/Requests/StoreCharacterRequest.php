@@ -28,6 +28,10 @@ class StoreCharacterRequest extends FormRequest
             'attack' => 'nullable',
             'defense' => 'nullable',
             'speed' => 'nullable',
+<<<<<<< HEAD
+=======
+            'items' => 'exists:items,id',
+>>>>>>> 6dea18ef6b9b4c8f61d68d57abdad251a004d25b
         ];
     }
 }

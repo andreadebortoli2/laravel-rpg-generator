@@ -27,7 +27,8 @@ class UpdateCharacterRequest extends FormRequest
             'description' => 'nullable|max:500',
             'attack' => 'nullable',
             'defense' => 'nullable',
-            'speed' => 'nullable'
+            'speed' => 'nullable',
+            'items' => 'exists:items,id'
         ];
     }
 }
