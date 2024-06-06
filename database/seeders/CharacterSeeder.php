@@ -17,6 +17,7 @@ class CharacterSeeder extends Seeder
     {
 
         $characters = config('characters-db');
+        $items_id_array = range(1, 37);
 
         foreach ($characters as $character) {
 
@@ -33,7 +34,7 @@ class CharacterSeeder extends Seeder
         }
 
         foreach (Character::all() as $character) {
-            $character->items()->attach($faker->numberBetween(1, 37));
+            $character->items()->attach($faker->randomElements($items_id_array, null));
         }
     }
 }
